@@ -18,6 +18,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.initUI()
+
+    def initUI(self):
         # Set the title of the main window
         self.setWindowTitle("DITTO.ai")
 
