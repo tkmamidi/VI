@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, Q
 import sys
 from utils.file_dialog import select_file
 from utils.data_parser import parse_data
-from utils.page_viewer import show_page, prev_page, next_page
+from utils.page_viewer import show_page
 import csv
 
 
@@ -61,13 +61,13 @@ class MainWindow(QMainWindow):
 
     def prev_page(self):
         self.current_page -= 1
-        prev_page(
+        show_page(
             self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
         )
 
     def next_page(self):
         self.current_page += 1
-        next_page(
+        show_page(
             self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
         )
 
