@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QFileDialog, QLabel
 import sys
 from utils.file_dialog import select_file
 from utils.page_viewer import show_page
@@ -10,18 +10,25 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        # Set the title of the main window
+        self.setWindowTitle("DITTO.ai")
+
         self.file_path = None
         self.parsed_data = {}
         self.table_header = []
         self.current_page = 0
         self.flagged_rows = set()
 
-        self.upload_button = QPushButton("Upload", self)
-        self.upload_button.setGeometry(10, 10, 80, 30)
+        self.upload_button = QPushButton("Upload csv", self)
+        self.upload_button.setGeometry(300, 10, 100, 30)
         self.upload_button.clicked.connect(self.select_file)
 
+        self.upload_text = QLabel(self)
+        self.upload_text.setGeometry(30, 10, 250, 30)
+        self.upload_text.setText("Upload openCravat annotated file:")
+
         self.text = QTextEdit(self)
-        self.text.setGeometry(10, 50, 780, 540)
+        self.text.setGeometry(30, 50, 780, 540)
         self.text.setReadOnly(True)
 
         self.prev_button = QPushButton("Prev", self)
