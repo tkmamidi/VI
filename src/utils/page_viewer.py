@@ -12,10 +12,10 @@ def show_page(parsed_data, current_page, text, prev_button, next_button):
 
 
 def prev_page(parsed_data, current_page, text, prev_button, next_button):
-    current_page -= 1
+    # current_page -= 1
     show_page(parsed_data, current_page, text, prev_button, next_button)
 
 
 def next_page(parsed_data, current_page, text, prev_button, next_button):
-    current_page += 1
+    # current_page += 1
     show_page(parsed_data, current_page, text, prev_button, next_button)
