@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QFileDialog
 import sys
 from utils.file_dialog import select_file
-from utils.data_parser import parse_data
 from utils.page_viewer import show_page
 from utils.prediction import predict
 import csv
@@ -41,7 +40,7 @@ class MainWindow(QMainWindow):
         self.flagged_rows = set()
 
         self.download_button = QPushButton("Download", self)
-        self.download_button.setGeometry(310, 600, 80, 30)
+        self.download_button.setGeometry(310, 600, 100, 30)
         self.download_button.clicked.connect(self.download_flagged_rows)
         self.download_button.setEnabled(False)
 
@@ -55,7 +54,7 @@ class MainWindow(QMainWindow):
     def predict_parse_data(self):
         if self.file_path:
             df = predict(self.file_path)
-            self.parsed_data, self.table_header = parse_data(df)
+            self.parsed_data = df.to_dict("index")
             self.current_page = 0
             show_page(
                 self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
@@ -86,9 +85,9 @@ class MainWindow(QMainWindow):
             if file_path:
                 with open(file_path, "w", newline="") as f:
                     csv_writer = csv.writer(f)
-                    csv_writer.writerow(self.table_header)
+                    csv_writer.writerow(self.parsed_data[0])
                     for row in self.flagged_rows:
-                        csv_writer.writerow(row.split(","))
+                        csv_writer.writerow(self.parsed_data[row].values())
 
 
 if __name__ == "__main__":
