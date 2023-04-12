@@ -3,6 +3,7 @@ import sys
 from utils.file_dialog import select_file
 from utils.data_parser import parse_data
 from utils.page_viewer import show_page
+from utils.prediction import predict
 import csv
 
 
@@ -49,11 +50,12 @@ class MainWindow(QMainWindow):
         if self.file_path:
             self.flagged_rows.clear()
             self.download_button.setEnabled(False)
-            self.parse_data()
+            self.predict_parse_data()
 
-    def parse_data(self):
+    def predict_parse_data(self):
         if self.file_path:
-            self.parsed_data, self.table_header = parse_data(self.file_path)
+            df = predict(self.file_path)
+            self.parsed_data, self.table_header = parse_data(df)
             self.current_page = 0
             show_page(
                 self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button

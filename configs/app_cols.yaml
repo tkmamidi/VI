@@ -1,0 +1,589 @@
+raw_cols:
+ - chrom
+ - pos
+ - ref_base
+ - alt_base
+ - all_mappings
+ - hugo
+ - transcript
+ - cchange
+ - achange
+ - clinvar.sig
+ - clinvar.rev_stat
+ - clinvar.sig_conf
+ - clingen.classification
+ - dgi.interaction
+ - dgi.name
+ - mutpred1.amino_acid_substitution
+ - coding
+ - so
+ - abraom.allele_freq
+ - aloft.tolerant
+ - aloft.recessive
+ - aloft.dominant
+ - aloft.pred
+ - aloft.conf
+ - cadd_exome.score
+ - cadd_exome.phred
+ - cosmic.variant_count
+ - cosmic_gene.occurrences
+ - cscape.score
+ - cscape_coding.score
+ - ccre_screen._group
+ - ccre_screen.bound
+ - cvdkp.ibs
+ - cvdkp.cad
+ - cvdkp.bmi
+ - cvdkp.afib
+ - cvdkp.diabetes
+ - clinpred.score
+ - dann.score
+ - dann_coding.dann_coding_score
+ - dgi.category
+ - dgi.score
+ - esp6500.ea_pop_af
+ - esp6500.aa_pop_af
+ - ensembl_regulatory_build.region
+ - ess_gene.ess_gene
+ - ess_gene.ess_gene_crispr
+ - ess_gene.indispensability_score
+ - exac_gene.exac_pli
+ - exac_gene.exac_nontcga_pli
+ - exac_gene.exac_nonpsych_pli
+ - exac_gene.exac_del_score
+ - exac_gene.exac_dup_score
+ - exac_gene.exac_cnv_score
+ - exac_gene.exac_cnv_flag
+ - fathmm.fathmm_rscore
+ - fathmm_mkl.fathmm_mkl_coding_score
+ - fathmm_mkl.fathmm_mkl_coding_pred
+ - fathmm_xf_coding.fathmm_xf_coding_score
+ - fathmm_xf_coding.fathmm_xf_coding_pred
+ - funseq2.motif
+ - funseq2.score
+ - gerp.gerp_nr
+ - gerp.gerp_rs_rank
+ - ghis.ghis
+ - genehancer.feature_name
+ - genehancer.score
+ - interpro.domain
+ - linsight.value
+ - lrt.lrt_converted_rankscore
+ - lrt.lrt_pred
+ - loftool.loftool_score
+ - metalr.score
+ - metasvm.rankscore
+ - mutpred1.mutpred_general_score
+ - mutpred_indel.rankscore
+ - mutation_assessor.rankscore
+ - mutation_assessor.impact
+ - mutationtaster.rankscore
+ - mutationtaster.prediction
+ - mutationtaster.model
+ - mutpanning.Max_Frequency
+ - prec.prec
+ - provean.rankscore
+ - provean.prediction
+ - pangalodb.organ
+ - pangalodb.sensitivity
+ - pangalodb.specificity
+ - phdsnpg.prediction
+ - phdsnpg.score
+ - phdsnpg.fdr
+ - phastcons.phastcons100_vert_r
+ - phastcons.phastcons30_mamm_r
+ - phastcons.phastcons17way_primate_r
+ - phylop.phylop100_vert_r
+ - phylop.phylop30_mamm_r
+ - phylop.phylop17_primate_r
+ - polyphen2.hdiv_pred
+ - polyphen2.hvar_pred
+ - polyphen2.hdiv_rank
+ - polyphen2.hvar_rank
+ - revel.rankscore
+ - rvis.rvis_evs
+ - rvis.rvis_fdr_exac
+ - rvis.rvis_exac
+ - sift.prediction
+ - sift.confidence
+ - sift.rankscore
+ - sift.med
+ - sift.seqs
+ - sift.multsite
+ - siphy.logodds_rank
+ - spliceai.ds_ag
+ - spliceai.ds_al
+ - spliceai.ds_dg
+ - spliceai.ds_dl
+ - spliceai.dp_ag
+ - spliceai.dp_al
+ - spliceai.dp_dg
+ - spliceai.dp_dl
+ - swissprot_ptm.mod
+ - swissprot_ptm.signal
+ - uk10k_cohort.uk10k_af
+ - uniprot.acc
+ - vest.score
+ - vest.pval
+ - dbscsnv.ada_score
+ - dbscsnv.rf_score
+ - gnomad_gene.oe_lof
+ - gnomad_gene.oe_mis
+ - gnomad_gene.oe_syn
+ - gnomad_gene.lof_z
+ - gnomad_gene.mis_z
+ - gnomad_gene.syn_z
+ - gnomad_gene.pLI
+ - gnomad_gene.pRec
+ - gnomad_gene.pNull
+ - gnomad3.af
+ - gnomad3.af_afr
+ - gnomad3.af_asj
+ - gnomad3.af_eas
+ - gnomad3.af_fin
+ - gnomad3.af_lat
+ - gnomad3.af_nfe
+ - gnomad3.af_oth
+ - gnomad3.af_sas
+ - phi.phi
+
+allele_freq_columns:
+ - gnomad_gene.oe_lof
+ - gnomad_gene.oe_mis
+ - gnomad_gene.oe_syn
+ - gnomad_gene.lof_z
+ - gnomad_gene.mis_z
+ - gnomad_gene.syn_z
+ - gnomad_gene.pLI
+ - gnomad_gene.pRec
+ - gnomad_gene.pNull
+ - gnomad3.af
+ - gnomad3.af_afr
+ - gnomad3.af_asj
+ - gnomad3.af_eas
+ - gnomad3.af_fin
+ - gnomad3.af_lat
+ - gnomad3.af_nfe
+ - gnomad3.af_oth
+ - gnomad3.af_sas
+
+detail_cols:
+ - chrom
+ - pos
+ - ref_base
+ - alt_base
+ - hugo
+ - transcript
+ - consequence
+ - hgvs
+ - cchange
+ - achange
+ - clinvar.sig
+ - clinvar.rev_stat
+ - clinvar.sig_conf
+ - clingen.classification
+ - dgi.interaction
+ - dgi.name
+ - mutpred1.amino_acid_substitution
+ - interpro.domain
+ - swissprot_ptm.mod
+ - swissprot_ptm.signal
+ - uniprot.acc
+
+display_cols:
+ chrom: Chromosome
+ pos: Position
+ ref_base: Ref Allele
+ alt_base: Alt Allele
+ hugo: Hugo Genename
+ transcript: Transcript
+ consequence: Consequence
+ hgvs: HGVS
+ achange: AA change
+ clinvar.sig: Clinvar class
+ clingen.classification: Clingen class
+ clinpred.score: Clinpred score
+ cadd_exome.phred: CADD score
+ gerp.gerp_nr: GERP score
+ gnomad3.af: gnomAD AF
+
+filtered_cols:
+ - chrom
+ - pos
+ - ref_base
+ - alt_base
+ - hugo
+ - transcript
+ - consequence
+ - hgvs
+ - cchange
+ - achange
+ - clinvar.sig
+ - clinvar.rev_stat
+ - clinvar.sig_conf
+ - clingen.classification
+ - dgi.interaction
+ - dgi.name
+ - mutpred1.amino_acid_substitution
+ - interpro.domain
+ - swissprot_ptm.mod
+ - swissprot_ptm.signal
+ - uniprot.acc
+ - abraom.allele_freq
+ - aloft.tolerant
+ - aloft.recessive
+ - aloft.dominant
+ - cadd_exome.score
+ - cadd_exome.phred
+ - cosmic.variant_count
+ - cosmic_gene.occurrences
+ - cscape.score
+ - cscape_coding.score
+ - cvdkp.ibs
+ - cvdkp.cad
+ - cvdkp.bmi
+ - cvdkp.afib
+ - cvdkp.diabetes
+ - clinpred.score
+ - dann.score
+ - dann_coding.dann_coding_score
+ - dgi.score
+ - esp6500.ea_pop_af
+ - esp6500.aa_pop_af
+ - ess_gene.indispensability_score
+ - exac_gene.exac_pli
+ - exac_gene.exac_nontcga_pli
+ - exac_gene.exac_nonpsych_pli
+ - exac_gene.exac_del_score
+ - exac_gene.exac_dup_score
+ - exac_gene.exac_cnv_score
+ - fathmm.fathmm_rscore
+ - fathmm_mkl.fathmm_mkl_coding_score
+ - fathmm_xf_coding.fathmm_xf_coding_score
+ - funseq2.score
+ - gerp.gerp_nr
+ - gerp.gerp_rs_rank
+ - ghis.ghis
+ - genehancer.score
+ - linsight.value
+ - lrt.lrt_converted_rankscore
+ - loftool.loftool_score
+ - metalr.score
+ - metasvm.rankscore
+ - mutpred1.mutpred_general_score
+ - mutpred_indel.rankscore
+ - mutation_assessor.rankscore
+ - mutationtaster.rankscore
+ - mutpanning.Max_Frequency
+ - prec.prec
+ - provean.rankscore
+ - pangalodb.sensitivity
+ - pangalodb.specificity
+ - phdsnpg.score
+ - phdsnpg.fdr
+ - phastcons.phastcons100_vert_r
+ - phastcons.phastcons30_mamm_r
+ - phastcons.phastcons17way_primate_r
+ - phylop.phylop100_vert_r
+ - phylop.phylop30_mamm_r
+ - phylop.phylop17_primate_r
+ - polyphen2.hdiv_rank
+ - polyphen2.hvar_rank
+ - revel.rankscore
+ - rvis.rvis_evs
+ - rvis.rvis_fdr_exac
+ - rvis.rvis_exac
+ - sift.rankscore
+ - sift.med
+ - sift.seqs
+ - sift.multsite
+ - siphy.logodds_rank
+ - spliceai.ds_ag
+ - spliceai.ds_al
+ - spliceai.ds_dg
+ - spliceai.ds_dl
+ - spliceai.dp_ag
+ - spliceai.dp_al
+ - spliceai.dp_dg
+ - spliceai.dp_dl
+ - uk10k_cohort.uk10k_af
+ - vest.score
+ - vest.pval
+ - dbscsnv.ada_score
+ - dbscsnv.rf_score
+ - gnomad_gene.oe_lof
+ - gnomad_gene.oe_mis
+ - gnomad_gene.oe_syn
+ - gnomad_gene.lof_z
+ - gnomad_gene.mis_z
+ - gnomad_gene.syn_z
+ - gnomad_gene.pLI
+ - gnomad_gene.pRec
+ - gnomad_gene.pNull
+ - gnomad3.af
+ - gnomad3.af_afr
+ - gnomad3.af_asj
+ - gnomad3.af_eas
+ - gnomad3.af_fin
+ - gnomad3.af_lat
+ - gnomad3.af_nfe
+ - gnomad3.af_oth
+ - gnomad3.af_sas
+ - phi.phi
+ - coding_Yes
+ - so_2kb_downstream_variant
+ - so_2kb_upstream_variant
+ - so_3_prime_UTR_variant
+ - so_5_prime_UTR_variant
+ - so_NMD_transcript_variant
+ - so_complex_substitution
+ - so_exon_loss_variant
+ - so_frameshift_elongation
+ - so_frameshift_truncation
+ - so_inframe_deletion
+ - so_inframe_insertion
+ - so_intron_variant
+ - so_lnc_RNA
+ - so_missense_variant
+ - so_polymorphic_pseudogene
+ - so_processed_transcript
+ - so_splice_site_variant
+ - so_start_lost
+ - so_start_retained_variant
+ - so_stop_gained
+ - so_stop_lost
+ - so_stop_retained_variant
+ - so_synonymous_variant
+ - so_transcript_ablation
+ - aloft.pred_Dominant
+ - aloft.pred_Recessive
+ - aloft.pred_Tolerant
+ - aloft.conf_High Confidence
+ - aloft.conf_Low Confidence
+ - ccre_screen._group_CTCF-only
+ - ccre_screen._group_DNase-H3K4me3
+ - ccre_screen._group_PLS
+ - ccre_screen._group_dELS
+ - ccre_screen._group_pELS
+ - ccre_screen.bound_Yes
+ - dgi.category_ABC TRANSPORTER
+ - dgi.category_B30_2 SPRY DOMAIN
+ - dgi.category_CELL SURFACE
+ - dgi.category_CLINICALLY ACTIONABLE
+ - dgi.category_CYTOCHROME P450
+ - dgi.category_DNA DIRECTED RNA POLYMERASE
+ - dgi.category_DNA REPAIR
+ - dgi.category_DRUG METABOLISM
+ - dgi.category_DRUG RESISTANCE
+ - dgi.category_DRUGGABLE GENOME
+ - dgi.category_ENZYME
+ - dgi.category_EXTERNAL SIDE OF PLASMA MEMBRANE
+ - dgi.category_FIBRINOGEN
+ - dgi.category_G PROTEIN COUPLED RECEPTOR
+ - dgi.category_GROWTH FACTOR
+ - dgi.category_HISTONE MODIFICATION
+ - dgi.category_HORMONE ACTIVITY
+ - dgi.category_ION CHANNEL
+ - dgi.category_KINASE
+ - dgi.category_LIPASE
+ - dgi.category_LIPID KINASE
+ - dgi.category_METHYL TRANSFERASE
+ - dgi.category_NEUTRAL ZINC METALLOPEPTIDASE
+ - dgi.category_NUCLEAR HORMONE RECEPTOR
+ - dgi.category_PHOSPHATIDYLINOSITOL 3 KINASE
+ - dgi.category_PHOSPHOLIPASE
+ - dgi.category_PROTEASE
+ - dgi.category_PROTEASE INHIBITOR
+ - dgi.category_PROTEIN PHOSPHATASE
+ - dgi.category_PTEN FAMILY
+ - dgi.category_SERINE THREONINE KINASE
+ - dgi.category_SHORT CHAIN DEHYDROGENASE REDUCTASE
+ - dgi.category_THIOREDOXIN
+ - dgi.category_TRANSCRIPTION FACTOR
+ - dgi.category_TRANSCRIPTION FACTOR BINDING
+ - dgi.category_TRANSCRIPTION FACTOR COMPLEX
+ - dgi.category_TRANSPORTER
+ - dgi.category_TUMOR SUPPRESSOR
+ - dgi.category_TYROSINE KINASE
+ - ensembl_regulatory_build.region_CTCF_binding_site
+ - ensembl_regulatory_build.region_TF_binding_site
+ - ensembl_regulatory_build.region_enhancer
+ - ensembl_regulatory_build.region_open_chromatin_region
+ - ensembl_regulatory_build.region_promoter
+ - ensembl_regulatory_build.region_promoter_flanking_region
+ - ess_gene.ess_gene_E
+ - ess_gene.ess_gene_N
+ - ess_gene.ess_gene_crispr_E
+ - ess_gene.ess_gene_crispr_N
+ - exac_gene.exac_cnv_flag_N
+ - exac_gene.exac_cnv_flag_Y
+ - fathmm_mkl.fathmm_mkl_coding_pred_Damaging
+ - fathmm_mkl.fathmm_mkl_coding_pred_Neutral
+ - fathmm_xf_coding.fathmm_xf_coding_pred_Damaging
+ - fathmm_xf_coding.fathmm_xf_coding_pred_Neutral
+ - funseq2.motif_Motif-Breaking
+ - funseq2.motif_Motif-Breaking;Motif-Gaining
+ - funseq2.motif_Motif-Gaining
+ - genehancer.feature_name_Enhancer
+ - genehancer.feature_name_Promoter
+ - genehancer.feature_name_Promoter/Enhancer
+ - lrt.lrt_pred_Damaging
+ - lrt.lrt_pred_Neutral
+ - lrt.lrt_pred_Unknown
+ - mutation_assessor.impact_high
+ - mutation_assessor.impact_low
+ - mutation_assessor.impact_medium
+ - mutation_assessor.impact_neutral
+ - mutationtaster.prediction_Automatic Disease Causing
+ - mutationtaster.prediction_Automatic Polymorphism
+ - mutationtaster.prediction_Damaging
+ - mutationtaster.prediction_Polymorphism
+ - mutationtaster.model_complex_aae
+ - mutationtaster.model_simple_aae
+ - mutationtaster.model_without_aae
+ - provean.prediction_Damaging
+ - provean.prediction_Neutral
+ - pangalodb.organ_Adrenal glands
+ - pangalodb.organ_Blood
+ - pangalodb.organ_Bone
+ - pangalodb.organ_Brain
+ - pangalodb.organ_Connective tissue
+ - pangalodb.organ_Embryo
+ - pangalodb.organ_Epithelium
+ - pangalodb.organ_Eye
+ - pangalodb.organ_GI tract
+ - pangalodb.organ_Heart
+ - pangalodb.organ_Immune system
+ - pangalodb.organ_Kidney
+ - pangalodb.organ_Liver
+ - pangalodb.organ_Lungs
+ - pangalodb.organ_Mammary gland
+ - pangalodb.organ_Olfactory system
+ - pangalodb.organ_Oral cavityorgan_Zygote
+ - pangalodb.organ_Pancreas
+ - pangalodb.organ_Parathyroid glands
+ - pangalodb.organ_Placenta
+ - pangalodb.organ_Reproductive
+ - pangalodb.organ_Skeletal muscle
+ - pangalodb.organ_Skin
+ - pangalodb.organ_Smooth muscle
+ - pangalodb.organ_Thymus
+ - pangalodb.organ_Thyroid
+ - pangalodb.organ_Urinary bladder
+ - pangalodb.organ_Vasculature
+ - pangalodb.organ_Zygote
+ - phdsnpg.prediction_Benign
+ - phdsnpg.prediction_Pathogenic
+ - polyphen2.hdiv_pred_B
+ - polyphen2.hdiv_pred_D
+ - polyphen2.hdiv_pred_P
+ - polyphen2.hvar_pred_B
+ - polyphen2.hvar_pred_D
+ - polyphen2.hvar_pred_P
+ - sift.prediction_Damaging
+ - sift.prediction_Tolerated
+ - sift.confidence_High
+ - sift.confidence_Low
+
+median_scores:
+ abraom.allele_freq: 0.053366
+ aloft.tolerant: 0.02785
+ aloft.recessive: 0.558425
+ aloft.dominant: 0.37985
+ cadd_exome.score: 1.701743
+ cadd_exome.phred: 17.04
+ cosmic.variant_count: 1.0
+ cosmic_gene.occurrences: 1229.0
+ cscape.score: 0.604251
+ cscape_coding.score: 0.655474
+ cvdkp.ibs: 1.74055e-05
+ cvdkp.cad: 1.2325e-06
+ cvdkp.bmi: 1.2743500000000001e-05
+ cvdkp.afib: 2.82055e-06
+ cvdkp.diabetes: 4.8845500000000005e-06
+ clinpred.score: 0.6575
+ dann.score: 0.650582806770815
+ dann_coding.dann_coding_score: 0.9948038665874045
+ dgi.score: 4.54
+ esp6500.ea_pop_af: 0.000697837
+ esp6500.aa_pop_af: 0.0192308
+ ess_gene.indispensability_score: 0.809361091862279
+ exac_gene.exac_pli: 0.0194357604713981
+ exac_gene.exac_nontcga_pli: 0.0337409889563391
+ exac_gene.exac_nonpsych_pli: 0.0804246287158954
+ exac_gene.exac_del_score: 0.199666539414193
+ exac_gene.exac_dup_score: 0.197949935032034
+ exac_gene.exac_cnv_score: 0.125576418151174
+ fathmm.fathmm_rscore: 0.79677
+ fathmm_mkl.fathmm_mkl_coding_score: 0.95114
+ fathmm_xf_coding.fathmm_xf_coding_score: 0.309186
+ funseq2.score: 0.921020485779239
+ gerp.gerp_nr: 5.34
+ gerp.gerp_rs_rank: 0.61008
+ ghis.ghis: 0.541603486
+ genehancer.score: 1.11
+ linsight.value: 0.0690979
+ lrt.lrt_converted_rankscore: 0.55875
+ loftool.loftool_score: 0.208
+ metalr.score: 0.3729
+ metasvm.rankscore: 0.74075
+ mutpred1.mutpred_general_score: 0.768
+ mutpred_indel.rankscore: 0.8023561169667579
+ mutation_assessor.rankscore: 0.63355
+ mutationtaster.rankscore: 0.81001
+ mutpanning.Max_Frequency: 6.24
+ prec.prec: 0.22348
+ provean.rankscore: 0.60665
+ pangalodb.sensitivity: 0.0
+ pangalodb.specificity: 0.00720551
+ phdsnpg.score: 0.948
+ phdsnpg.fdr: 0.036
+ phastcons.phastcons100_vert_r: 0.71638
+ phastcons.phastcons30_mamm_r: 0.51752
+ phastcons.phastcons17way_primate_r: 0.5123
+ phylop.phylop100_vert_r: 0.6367
+ phylop.phylop30_mamm_r: 0.45946
+ phylop.phylop17_primate_r: 0.45986
+ polyphen2.hdiv_rank: 0.58535
+ polyphen2.hvar_rank: 0.583745
+ revel.rankscore: 0.73589
+ rvis.rvis_evs: -0.36
+ rvis.rvis_fdr_exac: 0.01183273
+ rvis.rvis_exac: -0.29013162
+ sift.rankscore: 0.6493506493506493
+ sift.med: 2.76
+ sift.seqs: 43.0
+ sift.multsite: 1.0
+ siphy.logodds_rank: 0.65663
+ spliceai.ds_ag: 0.0006
+ spliceai.ds_al: 0.0
+ spliceai.ds_dg: 0.0005
+ spliceai.ds_dl: 0.0001
+ spliceai.dp_ag: 0.0
+ spliceai.dp_al: 0.0
+ spliceai.dp_dg: 0.0
+ spliceai.dp_dl: 0.0
+ uk10k_cohort.uk10k_af: 0.0059508066649034
+ vest.score: 0.811
+ vest.pval: 0.05765
+ dbscsnv.ada_score: 0.0169892003226744
+ dbscsnv.rf_score: 0.23
+ gnomad_gene.oe_lof: 0.35345
+ gnomad_gene.oe_mis: 0.86188
+ gnomad_gene.oe_syn: 1.0038
+ gnomad_gene.lof_z: 2.0875
+ gnomad_gene.mis_z: 0.66895
+ gnomad_gene.syn_z: -0.029477
+ gnomad_gene.pLI: 0.041107
+ gnomad_gene.pRec: 0.51205
+ gnomad_gene.pNull: 0.01772
+ gnomad3.af: 0.0265583
+ gnomad3.af_afr: 0.0505373
+ gnomad3.af_asj: 0.00481348
+ gnomad3.af_eas: 0.000327225
+ gnomad3.af_fin: 0.00190803
+ gnomad3.af_lat: 0.012597
+ gnomad3.af_nfe: 0.00311261
+ gnomad3.af_oth: 0.0223464
+ gnomad3.af_sas: 0.00426789
+ phi.phi: 0.32126

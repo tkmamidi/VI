@@ -1,2 +1,7 @@
 PyQt6
 pandas
+tqdm
+pyyaml
+joblib
+lz4
+scikit-learn
