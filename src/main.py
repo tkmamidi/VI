@@ -6,12 +6,18 @@ from PyQt5.QtWidgets import (
     QFileDialog,
     QLabel,
     QLineEdit,
+    QHBoxLayout,
+    QVBoxLayout,
+    QToolBar,
+    QStatusBar,
+    QWidget,
 )
 import sys
 from utils.file_dialog import select_file
 from utils.page_viewer import show_page
 from utils.prediction import predict
 import csv
+from PyQt5.QtCore import Qt
 
 
 class MainWindow(QMainWindow):
@@ -30,45 +36,74 @@ class MainWindow(QMainWindow):
         self.current_page = 0
         self.flagged_rows = set()
 
+        # Set central widget
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+
         self.upload_button = QPushButton("Upload csv", self)
-        self.upload_button.setGeometry(300, 10, 100, 30)
         self.upload_button.clicked.connect(self.select_file)
 
         self.upload_text = QLabel(self)
-        self.upload_text.setGeometry(30, 10, 250, 30)
         self.upload_text.setText("Upload openCravat annotated file:")
 
+        # Add status bar
+        status_bar = QStatusBar()
+        self.setStatusBar(status_bar)
+
         self.text = QTextEdit(self)
-        self.text.setGeometry(30, 50, 650, 500)
         self.text.setReadOnly(True)
 
         # Create QLineEdit widget for user input
         self.user_input_line_text = QLabel(self)
-        self.user_input_line_text.setGeometry(30, 550, 80, 30)
         self.user_input_line_text.setText("Notes:")
         self.user_input_line_edit = QLineEdit(self)
-        self.user_input_line_edit.setGeometry(90, 550, 590, 30)
         self.user_input_line_edit.textChanged.connect(self.update_user_input)
 
         self.prev_button = QPushButton("Prev", self)
-        self.prev_button.setGeometry(10, 600, 80, 30)
         self.prev_button.clicked.connect(self.prev_page)
         self.prev_button.setEnabled(False)
 
         self.next_button = QPushButton("Next", self)
-        self.next_button.setGeometry(110, 600, 80, 30)
         self.next_button.clicked.connect(self.next_page)
         self.next_button.setEnabled(False)
 
         self.flag_button = QPushButton("Flag", self)
-        self.flag_button.setGeometry(210, 600, 80, 30)
         self.flag_button.clicked.connect(self.flag_row)
         self.flagged_rows = set()
 
         self.download_button = QPushButton("Download", self)
-        self.download_button.setGeometry(310, 600, 100, 30)
         self.download_button.clicked.connect(self.download_flagged_rows)
         self.download_button.setEnabled(False)
+
+        # Create layout and add widgets
+        top_layout = QHBoxLayout()
+        top_layout.addWidget(self.upload_text)
+        top_layout.addWidget(self.upload_button)
+
+        middle_layout = QHBoxLayout()
+        middle_layout.addWidget(self.user_input_line_text)
+        middle_layout.addWidget(self.user_input_line_edit)
+
+        bottom_layout = QHBoxLayout()
+        bottom_layout.addWidget(self.prev_button)
+        bottom_layout.addWidget(self.next_button)
+        bottom_layout.addWidget(self.flag_button)
+        bottom_layout.addWidget(self.download_button)
+
+        main_layout = QVBoxLayout()
+        main_layout.addLayout(top_layout)
+        main_layout.addWidget(self.text)
+        main_layout.addLayout(middle_layout)
+        main_layout.addLayout(bottom_layout)
+
+        # Set widget layout
+        central_widget.setLayout(main_layout)
+
+        self.setGeometry(100, 100, 800, 600)
+
+    def resizeEvent(self, event):
+        # Override resizeEvent to adjust widget sizes and positions
+        self.text.setGeometry(10, 60, self.width() - 20, self.height() - 70)
 
     def select_file(self):
         self.file_path = select_file(self)
