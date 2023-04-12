@@ -1,4 +1,12 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit, QFileDialog, QLabel
+from PyQt5.QtWidgets import (
+    QApplication,
+    QMainWindow,
+    QPushButton,
+    QTextEdit,
+    QFileDialog,
+    QLabel,
+    QLineEdit,
+)
 import sys
 from utils.file_dialog import select_file
 from utils.page_viewer import show_page
@@ -28,8 +36,16 @@ class MainWindow(QMainWindow):
         self.upload_text.setText("Upload openCravat annotated file:")
 
         self.text = QTextEdit(self)
-        self.text.setGeometry(30, 50, 780, 540)
+        self.text.setGeometry(30, 50, 650, 500)
         self.text.setReadOnly(True)
+
+        # Create QLineEdit widget for user input
+        self.user_input_line_text = QLabel(self)
+        self.user_input_line_text.setGeometry(30, 550, 80, 30)
+        self.user_input_line_text.setText("Notes:")
+        self.user_input_line_edit = QLineEdit(self)
+        self.user_input_line_edit.setGeometry(90, 550, 590, 30)
+        self.user_input_line_edit.textChanged.connect(self.update_user_input)
 
         self.prev_button = QPushButton("Prev", self)
         self.prev_button.setGeometry(10, 600, 80, 30)
@@ -61,20 +77,41 @@ class MainWindow(QMainWindow):
     def predict_parse_data(self):
         if self.file_path:
             df = predict(self.file_path)
+            # Add new column for user input values
+            df["notes"] = ""
             self.parsed_data = df.to_dict("index")
             self.current_page = 0
             show_page(
                 self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
             )
 
+    def update_user_input(self, text):
+        # Get current row index
+        row_idx = list(self.parsed_data.keys())[self.current_page]
+        # page_data = list(self.parsed_data.values())[self.current_page]
+
+        # Update user input value in DataFrame
+        self.parsed_data[row_idx]["notes"] = text
+
     def prev_page(self):
+        # Save current user input before navigating to next page
+        self.update_user_input(self.user_input_line_edit.text())
+
         self.current_page -= 1
+        row_idx = list(self.parsed_data.keys())[self.current_page]
+        self.user_input_line_edit.setText(str(self.parsed_data[row_idx]["notes"]))
         show_page(
             self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
         )
 
     def next_page(self):
+        # Save current user input before navigating to next page
+        self.update_user_input(self.user_input_line_edit.text())
+
         self.current_page += 1
+        row_idx = list(self.parsed_data.keys())[self.current_page]
+        self.user_input_line_edit.setText(str(self.parsed_data[row_idx]["notes"]))
+
         show_page(
             self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
         )
