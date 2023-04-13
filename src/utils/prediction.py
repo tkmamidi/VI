@@ -27,9 +27,9 @@ def test_parsing(dataframe, config_dict):
 
     for key in tqdm(dataframe.columns):
         try:
-            dataframe[key] = dataframe[key].astype("float64")
+            dataframe[key] = dataframe[key].astype("float64").copy()
         except:
-            dataframe[key] = dataframe[key]
+            dataframe[key] = dataframe[key].copy()
 
     # Perform one-hot encoding
     dataframe = pd.get_dummies(dataframe, prefix_sep="_")
@@ -46,7 +46,7 @@ def test_parsing(dataframe, config_dict):
     df2 = pd.DataFrame()
     for key in tqdm(config_dict["filtered_cols"]):
         if key in dataframe.columns:
-            df2[key] = dataframe[key]
+            df2[key] = dataframe[key].copy()
         else:
             df2[key] = 0
 
@@ -78,5 +78,6 @@ def predict(uploaded_file):
     y_score = clf.predict_proba(df)
     pred = pd.DataFrame(y_score, columns=["Ditto_Benign_score", "Ditto score"])
     overall = pd.concat([var, pred[["Ditto score"]]], axis=1)
+    overall["Ditto score"] = overall["Ditto score"].round(2)
     del df, var, pred, clf, config_f, config_dict
     return overall

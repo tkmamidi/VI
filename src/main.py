@@ -100,7 +100,7 @@ class MainWindow(QMainWindow):
         # Set widget layout
         central_widget.setLayout(main_layout)
 
-        self.setGeometry(100, 100, 800, 600)
+        # self.setGeometry(100, 100, 800, 900)
 
     def resizeEvent(self, event):
         # Override resizeEvent to adjust widget sizes and positions
