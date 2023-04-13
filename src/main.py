@@ -47,12 +47,32 @@ class MainWindow(QMainWindow):
         self.upload_text.setText("Upload openCravat annotated file:")
 
         # Add status bar
-        status_bar = QStatusBar()
-        self.setStatusBar(status_bar)
+        # status_bar = QStatusBar()
+        # self.setStatusBar(status_bar)
 
-        self.text = QTextBrowser(self)
-        self.text.setReadOnly(True)
-        self.text.setOpenExternalLinks(True)
+        self.variant = QTextBrowser(self)
+        self.variant.setReadOnly(True)
+        self.variant.setOpenExternalLinks(True)
+        self.variant.setAlignment(Qt.AlignCenter)
+        self.variant.append("Variant info")
+
+        self.gene = QTextBrowser(self)
+        self.gene.setReadOnly(True)
+        self.gene.setOpenExternalLinks(True)
+        self.gene.setAlignment(Qt.AlignCenter)
+        self.gene.append("Gene info")
+
+        self.classification = QTextBrowser(self)
+        self.classification.setReadOnly(True)
+        self.classification.setOpenExternalLinks(True)
+        self.classification.setAlignment(Qt.AlignCenter)
+        self.classification.append("Classifications")
+
+        self.prediction = QTextBrowser(self)
+        self.prediction.setReadOnly(True)
+        self.prediction.setOpenExternalLinks(True)
+        self.prediction.setAlignment(Qt.AlignCenter)
+        self.prediction.append("Predictions")
 
         # Create QLineEdit widget for user input
         self.user_input_line_text = QLabel(self)
@@ -91,9 +111,18 @@ class MainWindow(QMainWindow):
         bottom_layout.addWidget(self.flag_button)
         bottom_layout.addWidget(self.download_button)
 
+        texth_layout = QHBoxLayout()
+        texth_layout.addWidget(self.variant)
+        texth_layout.addWidget(self.gene)
+
+        textv_layout = QHBoxLayout()
+        textv_layout.addWidget(self.classification)
+        textv_layout.addWidget(self.prediction)
+
         main_layout = QVBoxLayout()
         main_layout.addLayout(top_layout)
-        main_layout.addWidget(self.text)
+        main_layout.addLayout(texth_layout)
+        main_layout.addLayout(textv_layout)
         main_layout.addLayout(middle_layout)
         main_layout.addLayout(bottom_layout)
 
@@ -102,9 +131,12 @@ class MainWindow(QMainWindow):
 
         # self.setGeometry(100, 100, 800, 900)
 
-    def resizeEvent(self, event):
-        # Override resizeEvent to adjust widget sizes and positions
-        self.text.setGeometry(10, 60, self.width() - 20, self.height() - 70)
+    # def resizeEvent(self, event):
+    #    # Override resizeEvent to adjust widget sizes and positions
+    #    self.variant.setGeometry(10, 60, self.width() - 20, self.height() - 70)
+    #    self.gene.setGeometry(10, 60, self.width() - 20, self.height() - 70)
+    #    self.classification.setGeometry(10, 60, self.width() - 20, self.height() - 70)
+    #    self.prediction.setGeometry(10, 60, self.width() - 20, self.height() - 70)
 
     def select_file(self):
         self.file_path = select_file(self)
@@ -121,7 +153,14 @@ class MainWindow(QMainWindow):
             self.parsed_data = df.to_dict("index")
             self.current_page = 0
             show_page(
-                self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
+                self.parsed_data,
+                self.current_page,
+                self.variant,
+                self.gene,
+                self.classification,
+                self.prediction,
+                self.prev_button,
+                self.next_button,
             )
 
     def update_user_input(self, text):
@@ -140,7 +179,14 @@ class MainWindow(QMainWindow):
         row_idx = list(self.parsed_data.keys())[self.current_page]
         self.user_input_line_edit.setText(str(self.parsed_data[row_idx]["notes"]))
         show_page(
-            self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
+            self.parsed_data,
+            self.current_page,
+            self.variant,
+            self.gene,
+            self.classification,
+            self.prediction,
+            self.prev_button,
+            self.next_button,
         )
 
     def next_page(self):
@@ -152,7 +198,14 @@ class MainWindow(QMainWindow):
         self.user_input_line_edit.setText(str(self.parsed_data[row_idx]["notes"]))
 
         show_page(
-            self.parsed_data, self.current_page, self.text, self.prev_button, self.next_button
+            self.parsed_data,
+            self.current_page,
+            self.variant,
+            self.gene,
+            self.classification,
+            self.prediction,
+            self.prev_button,
+            self.next_button,
         )
 
     def flag_row(self):
