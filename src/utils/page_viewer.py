@@ -20,6 +20,8 @@ def template():
 <p>Position: {Position}</p>
 <p>Ref Allele: {Ref Allele}</p>
 <p>Alt Allele: {Alt Allele}</p>
+<p>UCSC: <a
+href="https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position={Chromosome}%3A{Position}%2D{Position}&hgsid=1605900055_lGHpROH21jdzM2N7zTud2ki7Ipv2">UCSC link</a></p>
 </div>
     <div class="right-column"><h3>Gene Info</h3>
 <p>Hugo Genename: {Hugo Genename}</p>

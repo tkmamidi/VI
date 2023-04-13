@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import (
     QApplication,
     QMainWindow,
     QPushButton,
-    QTextEdit,
+    QTextBrowser,
     QFileDialog,
     QLabel,
     QLineEdit,
@@ -50,8 +50,9 @@ class MainWindow(QMainWindow):
         status_bar = QStatusBar()
         self.setStatusBar(status_bar)
 
-        self.text = QTextEdit(self)
+        self.text = QTextBrowser(self)
         self.text.setReadOnly(True)
+        self.text.setOpenExternalLinks(True)
 
         # Create QLineEdit widget for user input
         self.user_input_line_text = QLabel(self)
