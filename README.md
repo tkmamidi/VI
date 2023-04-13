@@ -37,8 +37,7 @@ Installation simply requires fetching the source code. Following are required:
 To fetch source code, change in to directory of your choice and run:
 
 ```sh
-git clone -b pkd \
-    https://github.com/tkmamidi/VI.git
+git clone https://github.com/tkmamidi/VI.git
 ```
 
 ### Requirements
@@ -64,7 +63,7 @@ pip3 install -r requirements.txt
 ### Steps to run
 
 ```sh
-python src/pyqt5_vi.py
+python src/main.py
 ```
 
 ## Contact Info
