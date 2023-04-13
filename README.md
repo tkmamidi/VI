@@ -6,6 +6,7 @@
     - [Aim](#aim)
     - [Description](#description)
     - [Data](#data)
+    - [Usage](#usage)
         - [Installation](#installation)
         - [Requirements](#requirements)
         - [Activate pip environment](#activate-pip-environment)
@@ -24,6 +25,8 @@ these variants such as domain, function, DITTO deleterious score and Clinvar rep
 ## Data
 
 We are using predictions from DITTO streamlit app.
+
+## Usage
 
 ### Installation
 
